@@ -9,7 +9,7 @@ const ContextProvider = ({ children }) => {
   useEffect(() => {
     console.log("fetch Data", page);
     const fetchData = async () => {
-      const data = await useGetApi(`/api/article?page=${page}&limit=10`); // await async function
+      const data = await useGetApi(`/newsapi/article?page=${page}&limit=10`); // await async function
       setNewsDate((prev) => [...prev, ...data.articles]);
     };
     fetchData();

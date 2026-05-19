@@ -9,7 +9,7 @@ const SideBar = () => {
   const { newsData, setNewsDate, page, setPage } = useContext(CreateContext);
   const navigate = useNavigate();
   const handleClick = async (type) => {
-    const url = "/api/article";
+    const url = "/newsapi/article";
     let response;
     if (type === "Home") {
       response = await useGetApi(`${url}`);

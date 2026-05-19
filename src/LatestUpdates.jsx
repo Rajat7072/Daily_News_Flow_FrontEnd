@@ -5,7 +5,7 @@ const LatestUpdates = () => {
   const [newsHighlights, setNewsHighlights] = useState([]);
   useEffect(() => {
     async function getApiNews(params) {
-      const response = await useGetApi("/api/getNewsUpdates");
+      const response = await useGetApi("/newsapi/getNewsUpdates");
       setNewsHighlights(response.news_headlines);
     }
     getApiNews();

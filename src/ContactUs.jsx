@@ -14,7 +14,7 @@ const ContactUs = () => {
     ) {
       showToast(" All the Feilds are Mandatory", 2500, "😊", "top-right");
     }
-    const response = await usePostApi("/api/contactus", contactDetails);
+    const response = await usePostApi("/newsapi/contactus", contactDetails);
     if (response?.success) {
       showToast(response?.msg, 2500, "😊", "top-right");
     } else if (!response?.error?.success) {

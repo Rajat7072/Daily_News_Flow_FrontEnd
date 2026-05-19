@@ -77,17 +77,17 @@ const AdminPanel = () => {
       setLoading(true);
       let dataResponse;
       if (type === "article") {
-        dataResponse = await usePostApi("/api/extractArticle", {
+        dataResponse = await usePostApi("/newsapi/extractArticle", {
           url: news.extractArticle,
           Imgurl: news.imageUrl,
         });
         const addArticle = await usePostApi(
-          "/api/article",
+          "/newsapi/article",
           dataResponse.response,
         );
         callToastFunc(addArticle);
       } else if (type === "heading") {
-        dataResponse = await useGetFilterApi("/api/article", {
+        dataResponse = await useGetFilterApi("/newsapi/article", {
           heading: news.fetchArticleInput,
         });
         setNews({
@@ -98,15 +98,15 @@ const AdminPanel = () => {
         callToastFunc("Article");
       } else if (type === "textAreaUpdatedArticle") {
         const updatedNewsArticle = JSON.parse(news.textAreaUpdatedArticle);
-        dataResponse = await usePutApi("/api/article", updatedNewsArticle);
+        dataResponse = await usePutApi("/newsapi/article", updatedNewsArticle);
         setNews({ ...news, textAreaUpdatedArticle: "" });
         callToastFunc(dataResponse);
       } else if (type === "deleteArticle") {
-        dataResponse = await useDeleteApi("/api/article", news.deleteArticle);
+        dataResponse = await useDeleteApi("/newsapi/article", news.deleteArticle);
         setNews({ ...news, deleteArticle: "" });
         callToastFunc(dataResponse);
       } else {
-        dataResponse = await useGetApi("/api/getLatestNews");
+        dataResponse = await useGetApi("/newsapi/getLatestNews");
         setNews({ ...news, fetchArticleInput: "" });
         callToastFunc(dataResponse);
       }
@@ -130,7 +130,7 @@ const AdminPanel = () => {
       }
       const formData = new FormData();
       formData.append("myFile", file);
-      const myResponse = await usePostApi("/api/upload", formData);
+      const myResponse = await usePostApi("/newsapi/upload", formData);
       setNews({ ...news, imageUrl: myResponse.url });
     } catch (error) {
       showToast(
