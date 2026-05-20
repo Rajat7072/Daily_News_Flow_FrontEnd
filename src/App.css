@@ -6,6 +6,7 @@ body,
   min-height: 100dvh;
   overflow-x: hidden;
   overflow-y: auto;
+  background: white;
 }
 
 .app-container {
@@ -411,6 +412,5 @@ textarea {
   .latest-updates {
     min-height: 37vh;
     height: auto;
-    padding-bottom: 50px;
   }
 }
