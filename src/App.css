@@ -121,14 +121,14 @@ body,
 
 .latest-updates {
   border: 2px solid black;
-  max-height: 64vh;
+  max-height: 62vh;
   overflow-y: auto;
   width: 99%;
   margin-top: 5px;
 }
 .sub-card {
   overflow-y: auto;
-  max-height: 64vh;
+  max-height: 62vh;
   text-align: justify;
   z-index: 2;
 }
