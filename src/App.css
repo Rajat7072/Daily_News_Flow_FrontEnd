@@ -55,7 +55,7 @@ body,
   text-align: center;
   justify-content: center;
   align-items: center;
-  height: 220px;
+  height: 20vh;
   position: relative;
   z-index: 0;
 }
@@ -120,14 +120,14 @@ body,
 
 .latest-updates {
   border: 2px solid black;
-  height: 50vh;
+  height: 65vh;
   overflow-y: auto;
   width: 99%;
-  margin: 5px;
+  margin-top: 5px;
 }
 .sub-card {
   overflow-y: auto;
-  height: 55vh;
+  height: 65vh;
   text-align: justify;
   z-index: 2;
 }
@@ -357,6 +357,9 @@ textarea {
 
 /* Tablet */
 @media (max-width: 768px) {
+  .sub-card {
+    height: 37vh;
+  }
   .admin-panel {
     margin-top: 50px;
   }
@@ -401,5 +404,8 @@ textarea {
   }
   .contact-us-heading {
     font-size: 40px;
+  }
+  .latest-updates {
+    height: 37vh;
   }
 }
