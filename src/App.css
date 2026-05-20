@@ -357,10 +357,16 @@ textarea {
 
 /* Mobile */
 @media (max-width: 480px) {
+  .carousel-item > p {
+    font-size: large;
+  }
+  .carousel-inner {
+    max-height: 25vh;
+  }
 }
 
 /* Tablet */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .sub-card {
     min-height: 37vh;
     height: auto;
@@ -393,7 +399,6 @@ textarea {
   }
   .carousel-item > p {
     padding: 2px;
-    font-size: large;
   }
   .card {
     flex-direction: column;
