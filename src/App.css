@@ -10,7 +10,7 @@ body,
 .app-container {
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  max-height: 97vh;
 }
 
 @keyframes gradientShift {
@@ -120,7 +120,7 @@ body,
 
 .latest-updates {
   border: 2px solid black;
-  height: 56vh;
+  height: 50vh;
   overflow-y: auto;
   width: 99%;
   margin: 5px;

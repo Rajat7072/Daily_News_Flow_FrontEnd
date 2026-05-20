@@ -40,7 +40,7 @@ const MainCard = () => {
           <div className="MainCard">
             <SubCard data={newsData} />
           </div>
-          <div ref={bottomRef} style={{ height: "20px", marginTop: "20px" }} />
+          <div ref={bottomRef} style={{ height: "20px", marginTop: "5px" }} />
           <FloatingButton />
         </div>
       )}
