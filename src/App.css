@@ -411,5 +411,6 @@ textarea {
   .latest-updates {
     min-height: 37vh;
     height: auto;
+    padding-bottom: 50px;
   }
 }
