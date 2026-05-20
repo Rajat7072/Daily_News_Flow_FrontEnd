@@ -420,7 +420,7 @@ textarea {
     height: auto;
   }
 }
-@media (max-height: 768px) {
+@media (max-height: 800px) {
   .latest-updates {
     min-height: 32vh;
   }
