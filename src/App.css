@@ -364,7 +364,6 @@ textarea {
   .sub-card {
     min-height: 37vh;
     height: auto;
-    max-height: none;
   }
   .admin-panel {
     margin-top: 50px;
@@ -414,6 +413,5 @@ textarea {
   .latest-updates {
     min-height: 37vh;
     height: auto;
-    max-height: none;
   }
 }
