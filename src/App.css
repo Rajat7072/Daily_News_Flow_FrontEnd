@@ -407,6 +407,6 @@ textarea {
     font-size: 40px;
   }
   .latest-updates {
-    height: 37vh;
+    min-height: 37vh;
   }
 }
