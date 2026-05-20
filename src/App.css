@@ -420,12 +420,11 @@ textarea {
     height: auto;
   }
 }
-@media (max-width: 1366px) {
+@media (max-height: 768px) {
   .latest-updates {
-    min-height: 35vh;
+    min-height: 32vh;
   }
   .sub-card {
-    min-height: 35vh;
-    height: auto;
+    min-height: 32vh;
   }
 }
