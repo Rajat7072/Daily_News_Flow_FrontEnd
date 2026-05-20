@@ -333,7 +333,8 @@ textarea {
   padding: 5px;
 }
 .footer {
-  position: fixed;
+  position: relative;
+  /* position: fixed; */
   bottom: 0;
   display: flex;
   width: 100%;
