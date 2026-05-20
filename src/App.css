@@ -398,7 +398,7 @@ textarea {
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    min-height: auto;
+    max-height: auto;
   }
   .carousel-inner {
     padding: 20px;
