@@ -6,7 +6,7 @@ body,
   min-height: 100dvh;
   overflow-x: hidden;
   overflow-y: auto;
-  background: white;
+  background-color: white;
 }
 
 .app-container {
