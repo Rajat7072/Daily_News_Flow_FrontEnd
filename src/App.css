@@ -342,6 +342,7 @@ textarea {
   text-align: center;
   background: white;
   z-index: 1000;
+  min-height: 6vh;
 }
 .card {
   display: flex;
