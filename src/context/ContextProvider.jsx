@@ -8,7 +8,16 @@ const ContextProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
-      const data = await useGetApi(`/newsapi/article?page=${page}&limit=10`); // await async function
+      const category = localStorage.getItem("category");
+      let data;
+      if (category) {
+        data = await useGetApi(
+          `/newsapi/article?page=${page}&limit=10&category=${category}`,
+        );
+      } else {
+        data = await useGetApi(`/newsapi/article?page=${page}&limit=10`); // await async function
+      }
+
       setNewsDate((prev) => [...prev, ...data.articles]);
     };
     fetchData();

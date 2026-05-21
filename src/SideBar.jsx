@@ -9,17 +9,20 @@ const SideBar = () => {
   const { newsData, setNewsDate, page, setPage } = useContext(CreateContext);
   const navigate = useNavigate();
   const handleClick = async (type) => {
-    const url = "/newsapi/article";
+    const url = "/newsapi/article?page=1&limit=10";
     let response;
     if (type === "Home") {
       response = await useGetApi(`${url}`);
+      localStorage.removeItem("category");
     } else {
-      response = await useGetApi(`${url}?category=${type}`);
+      localStorage.setItem("category", type);
+      response = await useGetApi(`${url}&category=${type}`);
     }
 
     if (response.articles.length) {
       setNewsDate(response.articles);
     } else {
+      localStorage.removeItem("category");
       showToast(
         " No Articles are present in this section",
         2500,

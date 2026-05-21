@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import dnf from "../Images/Rose-Logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import CreateContext from "./context/CreateContext";
 
 const SubCard = (probs) => {
   const navigate = useNavigate();
@@ -8,6 +9,29 @@ const SubCard = (probs) => {
     navigate(`/article/${id}`);
   };
   const { data } = probs;
+  const { page, setPage } = useContext(CreateContext);
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setPage((prev) => prev + 1);
+        }
+      },
+      {
+        threshold: 0.1,
+      },
+    );
+    if (bottomRef.current) {
+      observer.observe(bottomRef.current);
+    }
+    return () => {
+      if (bottomRef.current) {
+        observer.unobserve(bottomRef.current);
+      }
+    };
+  }, [setPage]);
 
   return (
     <div className="sub-card">
@@ -42,6 +66,12 @@ const SubCard = (probs) => {
           </div>
         );
       })}
+      <div
+        ref={bottomRef}
+        style={{
+          height: "20px",
+        }}
+      />
     </div>
   );
 };
