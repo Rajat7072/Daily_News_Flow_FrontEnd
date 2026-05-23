@@ -354,6 +354,14 @@ textarea {
   margin-left: 10px;
   padding: 4px;
 }
+.inside-latest-updates-div {
+  padding: 5px;
+}
+.inside-latest-updates-div > p {
+  text-align: justify;
+  margin-block-start: 2px;
+  margin-block-end: 2px;
+}
 
 /* Mobile */
 @media (max-width: 480px) {

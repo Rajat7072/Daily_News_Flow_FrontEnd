@@ -33,6 +33,7 @@ const AdminPanel = () => {
     textAreaUpdatedArticle: "",
     imageUrl: "",
     deleteArticle: "",
+    articleArray: [],
   });
   const [file, setFile] = useState(null);
 
@@ -69,6 +70,8 @@ const AdminPanel = () => {
       setNews({ ...news, imageUrl: event.target.value });
     } else if (type === "deleteArticle") {
       setNews({ ...news, deleteArticle: event.target.value });
+    } else if (type === "articleArray") {
+      setNews({ ...news, articleArray: event.target.value });
     }
   };
 
@@ -84,6 +87,10 @@ const AdminPanel = () => {
         const addArticle = await usePostApi(
           "/newsapi/article",
           dataResponse.response,
+        );
+        const responseNewsCountSaved = await usePutApi(
+          "/newsapi/count",
+          dataResponse.category,
         );
         callToastFunc(addArticle);
       } else if (type === "heading") {
@@ -102,11 +109,15 @@ const AdminPanel = () => {
         setNews({ ...news, textAreaUpdatedArticle: "" });
         callToastFunc(dataResponse);
       } else if (type === "deleteArticle") {
-        dataResponse = await useDeleteApi("/newsapi/article", news.deleteArticle);
+        dataResponse = await useDeleteApi(
+          "/newsapi/article",
+          news.deleteArticle,
+        );
         setNews({ ...news, deleteArticle: "" });
         callToastFunc(dataResponse);
       } else {
-        dataResponse = await useGetApi("/newsapi/getLatestNews");
+        const articleArray = JSON.parse(news.articleArray);
+        dataResponse = await usePostApi("/newsapi/getLatestNews", articleArray);
         setNews({ ...news, fetchArticleInput: "" });
         callToastFunc(dataResponse);
       }
@@ -207,12 +218,18 @@ const AdminPanel = () => {
           </div>
           <div id="border">
             <h5>Click Below To Update Latest News For Today:</h5>
+            <input
+              type="text"
+              placeholder="Place The Array of Article"
+              value={news.articleArray}
+              onChange={(e) => handleChange(e, "articleArray")}
+            />
             <button
               type="button"
               className="btn btn-outline-dark"
               onClick={handleClick}
             >
-              Get Latest News
+              Add Latest News
             </button>
           </div>
           <div id="border">

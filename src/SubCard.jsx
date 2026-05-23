@@ -1,7 +1,8 @@
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext, useState } from "react";
 import dnf from "../Images/Rose-Logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import CreateContext from "./context/CreateContext";
+import { useGetApi } from "./Api/useGetApi";
 
 const SubCard = (probs) => {
   const navigate = useNavigate();
@@ -11,12 +12,34 @@ const SubCard = (probs) => {
   const { data } = probs;
   const { page, setPage } = useContext(CreateContext);
   const bottomRef = useRef(null);
+  const [newsCount, setNewsCount] = useState({});
 
+  useEffect(() => {
+    const fetchCount = async () => {
+      const responseData = await useGetApi("/newsapi/count");
+      setNewsCount(responseData);
+    };
+    fetchCount();
+  }, []);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setPage((prev) => prev + 1);
+          const limit_cal = page * 10;
+          const category = localStorage.getItem("category");
+          if (
+            category &&
+            limit_cal <=
+              Math.ceil(parseInt(newsCount?.count?.categories[category] / 10)) *
+                10
+          ) {
+            setPage((prev) => prev + 1);
+          } else if (
+            limit_cal <=
+            Math.ceil(parseInt(newsCount?.count?.total) / 10) * 10
+          ) {
+            setPage((prev) => prev + 1);
+          }
         }
       },
       {
@@ -31,7 +54,7 @@ const SubCard = (probs) => {
         observer.unobserve(bottomRef.current);
       }
     };
-  }, [setPage]);
+  }, [page, newsCount, setPage]);
 
   return (
     <div className="sub-card">
