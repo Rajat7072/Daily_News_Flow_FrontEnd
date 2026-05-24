@@ -24,7 +24,7 @@ const SideBar = () => {
     } else {
       localStorage.removeItem("category");
       showToast(
-        " No Articles are present i(n this section",
+        " No Articles are present in this section",
         2500,
         "😊",
         "top-right",
@@ -76,6 +76,7 @@ const SideBar = () => {
                   <Link
                     className="nav-link active"
                     aria-current="page"
+                    data-bs-dismiss="offcanvas"
                     onClick={() => handleClick("Home")}
                     to="/"
                   >
@@ -96,6 +97,7 @@ const SideBar = () => {
                       <Link
                         onClick={() => handleClick("Science")}
                         className="dropdown-item"
+                        data-bs-dismiss="offcanvas"
                       >
                         Science
                       </Link>
@@ -104,6 +106,7 @@ const SideBar = () => {
                       <Link
                         className="dropdown-item"
                         onClick={() => handleClick("Politics")}
+                        data-bs-dismiss="offcanvas"
                       >
                         Politics
                       </Link>
@@ -112,6 +115,7 @@ const SideBar = () => {
                       <Link
                         className="dropdown-item"
                         onClick={() => handleClick("Technology")}
+                        data-bs-dismiss="offcanvas"
                       >
                         Technology
                       </Link>
@@ -120,6 +124,7 @@ const SideBar = () => {
                       <Link
                         className="dropdown-item"
                         onClick={() => handleClick("Sports")}
+                        data-bs-dismiss="offcanvas"
                       >
                         Sports
                       </Link>
@@ -128,6 +133,7 @@ const SideBar = () => {
                       <Link
                         className="dropdown-item"
                         onClick={() => handleClick("Research")}
+                        data-bs-dismiss="offcanvas"
                       >
                         Research
                       </Link>
@@ -136,6 +142,7 @@ const SideBar = () => {
                       <Link
                         className="dropdown-item"
                         onClick={() => handleClick("Education")}
+                        data-bs-dismiss="offcanvas"
                       >
                         Education
                       </Link>
@@ -144,6 +151,7 @@ const SideBar = () => {
                       <Link
                         className="dropdown-item"
                         onClick={() => handleClick("Business")}
+                        data-bs-dismiss="offcanvas"
                       >
                         Business
                       </Link>
@@ -152,6 +160,7 @@ const SideBar = () => {
                       <Link
                         className="dropdown-item"
                         onClick={() => handleClick("Health")}
+                        data-bs-dismiss="offcanvas"
                       >
                         Health
                       </Link>
@@ -160,6 +169,7 @@ const SideBar = () => {
                       <Link
                         className="dropdown-item"
                         onClick={() => handleClick("Environment")}
+                        data-bs-dismiss="offcanvas"
                       >
                         Environment
                       </Link>
@@ -186,7 +196,11 @@ const SideBar = () => {
                   Search
                 </button>
               </form> */}
-              <Link className="dropdown-item" to="/aboutus">
+              <Link
+                className="dropdown-item"
+                data-bs-dismiss="offcanvas"
+                onClick={() => navigate("/aboutus")}
+              >
                 About Us
               </Link>
             </div>
