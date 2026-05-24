@@ -18,13 +18,13 @@ const SideBar = () => {
       localStorage.setItem("category", type);
       response = await useGetApi(`${url}&category=${type}`);
     }
-
+    setPage(1);
     if (response.articles.length) {
       setNewsDate(response.articles);
     } else {
       localStorage.removeItem("category");
       showToast(
-        " No Articles are present in this section",
+        " No Articles are present i(n this section",
         2500,
         "😊",
         "top-right",

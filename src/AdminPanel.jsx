@@ -84,15 +84,12 @@ const AdminPanel = () => {
           url: news.extractArticle,
           Imgurl: news.imageUrl,
         });
-        const addArticle = await usePostApi(
-          "/newsapi/article",
-          dataResponse.response,
-        );
-        const responseNewsCountSaved = await usePutApi(
-          "/newsapi/count",
-          dataResponse.category,
-        );
-        callToastFunc(addArticle);
+        setNews({ ...news, extractArticle: "" });
+        const responseNewsCountSaved = await usePutApi("/newsapi/count", {
+          params: dataResponse.response,
+          type: "Increase",
+        });
+        callToastFunc(dataResponse);
       } else if (type === "heading") {
         dataResponse = await useGetFilterApi("/newsapi/article", {
           heading: news.fetchArticleInput,
@@ -113,7 +110,16 @@ const AdminPanel = () => {
           "/newsapi/article",
           news.deleteArticle,
         );
+        const responseNewsCountSaved = await usePutApi("/newsapi/count", {
+          params: dataResponse.category,
+          type: "Decrease",
+        });
         setNews({ ...news, deleteArticle: "" });
+        const toastSend = {
+          success: dataResponse.success,
+          status: dataResponse.status,
+          msg: dataResponse.msg,
+        };
         callToastFunc(dataResponse);
       } else {
         const articleArray = JSON.parse(news.articleArray);
