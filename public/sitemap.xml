@@ -5,5 +5,19 @@
   <url>
     <loc>https://www.dailynewsflow.com/</loc>
     <priority>1.0</priority>
+    <changefreq>hourly</changefreq>
+    <lastmod>2026-06-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.dailynewsflow.com/aboutus</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.dailynewsflow.com/contactus</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-20</lastmod>
   </url>
 </urlset>

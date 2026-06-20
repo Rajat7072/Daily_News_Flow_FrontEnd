@@ -1,0 +1,21 @@
+{
+  "name": "Daily News Flow",
+  "short_name": "News Flow",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "description": "Fast, AI-powered news delivery with trending headlines, breaking stories, and real-time updates.",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

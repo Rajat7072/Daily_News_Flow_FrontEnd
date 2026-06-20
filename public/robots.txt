@@ -1,4 +1,6 @@
 User-agent: *
+Disallow: /adminPanel
+Disallow: /login
 Allow: /
 
 Sitemap: https://www.dailynewsflow.com/sitemap.xml
