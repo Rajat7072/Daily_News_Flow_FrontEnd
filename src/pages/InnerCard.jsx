@@ -1,10 +1,10 @@
 import React, { useContext, useMemo, useState, useEffect } from "react";
-import FAQ from "./FAQ";
-import CreateContext from "./context/CreateContext";
+import FAQ from "../components/FAQ";
+import CreateContext from "../context/CreateContext";
 import { useParams, useLocation } from "react-router-dom";
-import Loader from "./Loader";
-import { useGetFilterApi } from "./Api/useGetApi";
-import { generateFAQSchema, truncateText } from "./utils/seoHelpers";
+import Loader from "../components/Loader";
+import { useGetFilterApi } from "../Api/useGetApi";
+import { generateFAQSchema, truncateText } from "../utils/seoHelpers";
 
 const InnerCard = () => {
   const { id } = useParams();

@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from "react";
-import Heading from "./Heading";
-import { usePostApi } from "./Api/usePostApi";
-import { useToast } from "./useToast";
-import { SEO } from "./components/SEO";
-import { getCanonicalUrl } from "./utils/seoHelpers";
+import Heading from "../components/Heading";
+import { usePostApi } from "../Api/usePostApi";
+import { useToast } from "../hooks/useToast";
+import { SEO } from "../components/SEO";
+import { getCanonicalUrl } from "../utils/seoHelpers";
 
 const ContactUs = () => {
   const showToast = useToast();
